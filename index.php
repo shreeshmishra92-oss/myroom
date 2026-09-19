@@ -1,8 +1,9 @@
 <?php
 include 'dbsetting.php';
+
 $social=mysqli_query($conx,'SELECT * FROM `register`');
 $sns= mysqli_fetch_assoc($social);
-//print_r($sns)
+/print_r($sns)
 ?>
 <!DOCTYPE html>
 <html lang="en">
