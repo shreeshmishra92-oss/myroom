@@ -1,0 +1,191 @@
+/* Base Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg-main: #f4f6f9;
+    --bg-sidebar: #ffffff;
+    --text-dark: #2d3748;
+    --text-muted: #718096;
+    --primary: #4f46e5;
+    --primary-light: #e0e7ff;
+    --border-color: #e2e8f0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+}
+
+/* Dashboard Grid Layout */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 240px 1fr 320px; /* Left Sidebar, Main, Right Sidebar */
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Left Sidebar Placeholder Styling */
+.left-sidebar {
+    background-color: #1e293b;
+    color: white;
+    padding: 20px;
+}
+.left-sidebar .logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Main Content Area */
+.main-content {
+    padding: 24px;
+    overflow-y: auto;
+}
+.top-bar {
+    margin-bottom: 20px;
+}
+
+/* === RIGHT SIDEBAR MENU STYLING === */
+.right-sidebar {
+    background-color: var(--bg-sidebar);
+    border-left: 1px solid var(--border-color);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow-y: auto;
+}
+
+/* User Profile Card */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-section .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.profile-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* General Sections */
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+/* Notification Items */
+.notification-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.notification-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--bg-main);
+    transition: background 0.2s ease;
+}
+
+.notification-item:hover {
+    background-color: #edf2f7;
+}
+
+.notification-item.unread {
+    background-color: var(--primary-light);
+}
+
+.alert-icon {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-top: 2px;
+}
+
+.alert-text p {
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.alert-text span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 4px;
+}
+
+/* Quick Action Grid buttons */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+}
+
+.action-btn i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.action-btn:hover {
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Responsive collapse rule */
+@media (max-width: 1024px) {
+    .dashboard-container {
+        grid-template-columns: 240px 1fr; /* Hides right sidebar on smaller screens */
+    }
+    .right-sidebar {
+        display: none;
+    }
+}

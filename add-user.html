@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add New User Account</title>
+    <!-- Boxicons for modern UI icons -->
+    <link href="https://unpkg.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        
+        <!-- Design / Marketing Block -->
+        <div class="auth-visual">
+            <div class="visual-content">
+                <h2>Security & Access Control</h2>
+                <p>Create credentials and assign granular permission tiers securely within your network cluster.</p>
+            </div>
+            <div class="visual-overlay"></div>
+        </div>
+
+        <!-- Form Block -->
+        <div class="auth-form-container">
+            <div class="form-header">
+                <a href="#" class="back-link"><i class='bx bx-arrow-back'></i> Back to Dashboard</a>
+                <h1>Create User Login</h1>
+                <p>Set up login credentials and roles for a new team member.</p>
+            </div>
+
+            <form class="user-form" autocomplete="off">
+                
+                <!-- Full Name Field -->
+                <div class="input-group">
+                    <label for="fullName">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class='bx bx-user input-icon'></i>
+                        <input type="text" id="fullName" placeholder="e.g. Alex Rivera" required>
+                    </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="input-group">
+                    <label for="userEmail">Login Email Address</label>
+                    <div class="input-wrapper">
+                        <i class='bx bx-envelope input-icon'></i>
+                        <input type="email" id="userEmail" placeholder="name@company.com" required>
+                    </div>
+                </div>
+
+                <!-- Role Selection Dropdown -->
+                <div class="input-group">
+                    <label for="userRole">Assign System Role</label>
+                    <div class="input-wrapper">
+                        <i class='bx bx-shield-quarter input-icon'></i>
+                        <select id="userRole" required>
+                            <option value="" disabled selected>Select a access clearance level...</option>
+                            <option value="admin">Administrator (Full Access)</option>
+                            <option value="editor">Editor (Content Management)</option>
+                            <option value="viewer">Viewer (Read-Only Analytics)</option>
+                            <option value="support">Support Agent (Ticket Handling)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="input-group">
+                    <div class="label-flex">
+                        <label for="userPassword">Initial Password</label>
+                        <button type="button" class="action-link-btn" id="generatePasswordBtn">Generate Secure</button>
+                    </div>
+                    <div class="input-wrapper">
+                        <i class='bx bx-lock-alt input-icon'></i>
+                        <input type="password" id="userPassword" placeholder="••••••••" required>
+                        <i class='bx bx-hide toggle-password' id="togglePassword"></i>
+                    </div>
+                    
+                    <!-- Realtime Indicator UI Tracker -->
+                    <div class="password-meter-container">
+                        <div class="meter-bar"><div class="meter-fill" id="meterFill"></div></div>
+                        <span class="meter-text" id="meterText">Enter a secure temporary password</span>
+                    </div>
+                </div>
+
+                <!-- Multi-factor Checkbox Options -->
+                <div class="checkbox-group">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" checked id="requireReset">
+                        <span class="checkmark"></span>
+                        <span class="label-text">Force user to change password on first login sequence</span>
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="requireMfa">
+                        <span class="checkmark"></span>
+                        <span class="label-text">Enforce Mandatory Multi-Factor Authentication (MFA)</span>
+                    </label>
+                </div>
+
+                <!-- Form Operations Action Row -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Provision Account</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Quick Functionality JavaScript Context -->
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#userPassword');
+
+        // Toggle Visiblity Mask
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('bx-show');
+            this.classList.toggle('bx-hide');
+        });
+    </script>
+</body>
+</html>
