@@ -1,6 +1,6 @@
 <?php
 include 'dbsetting.php';
-
+//token: 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
 $social=mysqli_query($conx,'SELECT * FROM `register`');
 $sns= mysqli_fetch_assoc($social);
 //print_r($sns)
